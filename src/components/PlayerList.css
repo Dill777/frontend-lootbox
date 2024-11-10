@@ -1,0 +1,65 @@
+.player-list {
+    flex: 1;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 600px;
+    max-width: 250px;
+    overflow-y: auto;
+}
+
+.player-list h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.player-list ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.player-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+}
+
+.player-list li:hover {
+    background-color: #f9f9f9;
+}
+
+.player-list .username {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.player-list .rewards {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.player-list .status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.player-list .status.online {
+    color: #4caf50;
+}
+
+.player-list .status.offline {
+    color: #f44336;
+}
+
+.player-list .status::before {
+    content: "•";
+    font-size: 20px;
+}

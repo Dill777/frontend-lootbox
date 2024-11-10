@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { initiateSocket, disconnectSocket, getSocket } from "../utils/socket";
 import LootBoxGrid from "../components/LootBoxGrid";
 import PlayerList from "../components/PlayerList";
+import "./Home.css";
 
 function Home({ user }) {
     const navigate = useNavigate();

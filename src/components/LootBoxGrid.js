@@ -3,7 +3,7 @@ import { subscribeToEvent, emitEvent } from "../utils/socket";
 import { api } from "../utils/api";
 import LootBox from "./LootBox";
 import RewardModal from "./RewardModal";
-//import "./LootBoxGrid.css";
+import "./LootBoxGrid.css";
 
 function LootBoxGrid({ user }) {
     const [lootBoxes, setLootBoxes] = useState([]);
@@ -33,7 +33,11 @@ function LootBoxGrid({ user }) {
 
         subscribeToEvent("timer", (data) => {
             console.log("Remaining time:", data);
-            setTimeLeft(data);
+            if (data > 0) {
+                setTimeLeft(data);
+            } else {
+                setTimeLeft(null);
+            }
         });
     }, []);
 
@@ -53,7 +57,7 @@ function LootBoxGrid({ user }) {
     return (
         <div className="lootbox-grid-container">
             {error && <p className="error">{error}</p>}
-            {timeLeft !== null && <p>Before lootbox update: {timeLeft} sec</p>}
+            {timeLeft > 0 && <p>Before lootbox update: {timeLeft} sec</p>}
             <div className="lootbox-grid">
                 {lootBoxes.map((lootBox) => (
                     <LootBox

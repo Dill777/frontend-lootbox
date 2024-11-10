@@ -1,5 +1,5 @@
 import React from "react";
-//import "./RewardModal.css";
+import "./RewardModal.css";
 
 function RewardModal({ reward, onClose }) {
     return (

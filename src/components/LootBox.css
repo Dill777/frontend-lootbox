@@ -1,0 +1,58 @@
+.lootbox {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    position: relative;
+}
+
+.lootbox:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.lootbox.opened {
+    background-color: #e0ffe0;
+    border-color: #4caf50;
+    transform: rotateY(360deg);
+    transition: transform 0.8s;
+}
+
+.lootbox.opened::after {
+    content: "🎁";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+}
+
+.lootbox p {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.lootbox .prize {
+    font-weight: bold;
+}
+
+.lootbox.animate {
+    animation: rotateBox 0.8s forwards;
+}
+
+@keyframes rotateBox {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
